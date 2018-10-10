@@ -37,4 +37,4 @@ DEPENDENCIES
   sinatra (= 2.0.0.beta2)
 
 BUNDLED WITH
-   1.12.5
+   1.16.5
