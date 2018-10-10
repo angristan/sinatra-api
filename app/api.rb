@@ -3,19 +3,19 @@ require 'sinatra/base'
 
 class Api < Sinatra::Base
   file = File.read('data.json')
-  movies = JSON.parse(file)
+  movies = JSON.parse(file)['movies']
 
   get '/hello' do
     'Hello world!'
   end
 
   get '/movies' do
-    movies['movies'].to_s
+    movies.to_json
   end
 
   get '/movies/:id' do
-    movies['movies'].each do |movie|
-      return movie.to_s if movie['id'] == params[:id].to_i
+    movies.each do |movie|
+      return movie.to_json if movie['id'].to_s == params[:id]
     end
   end
 end
